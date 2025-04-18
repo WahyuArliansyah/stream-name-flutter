@@ -74,3 +74,5 @@ Perbedaan antara menggunakan `listen` dan `await for`
    ```
 
    Maksud dari kode ini adalah membuat angka yang random/acak dari 0-9, ngirim angka ke stream lewat sink dan angka ini akan nerima oleh listener di `initState()` dan memperbarui UI.
+
+2. ![Soal6](images/gif2.gif)
