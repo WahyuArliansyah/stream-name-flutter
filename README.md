@@ -41,3 +41,36 @@ Perbedaan antara menggunakan `listen` dan `await for`
 
 1. `listen` Eksekusi kode berlanjut setelah pemanggilan dan lebih cocok untuk UI karena non-blocking dan lebih mudah dikontrol (bisa di-cancel)
 2. `await for` kode akan berhenti ketika sudah berhenti looping (karena menggunakan `stream periodic` jadi tidak akan pernah berhenti/selesai).
+
+# Soal 6
+
+1. Pengertian praktikum 8 dan 10
+   Praktikum 8
+
+   ```Dart
+   void initState() {
+    numberStream = NumberStream();
+    numberStreamController = numberStream.controller;
+    Stream stream = numberStreamController.stream;
+    stream.listen((event) {
+      setState(() {
+        lastNumber = event;
+      });
+    });
+    super.initState();
+   }
+   ```
+
+   Persiapan stream ketika wigdet pertama kali dibuat, membuat sistem untuk menerima data angka yang dikirim melalui stream, dan setiap ada angka yang baru, akan update `lastNumber` dan rebuild wigdet.
+
+   Praktikum 10
+
+   ```Dart
+     void addRandomNumber() {
+    Random random = Random();
+    int myNum = random.nextInt(10);
+    numberStream.addNumberToSink(myNum);
+   }
+   ```
+
+   Maksud dari kode ini adalah membuat angka yang random/acak dari 0-9, ngirim angka ke stream lewat sink dan angka ini akan nerima oleh listener di `initState()` dan memperbarui UI.
