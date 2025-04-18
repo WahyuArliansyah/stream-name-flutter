@@ -34,3 +34,10 @@ final List<Color> colors = [
 # Soal 4
 
 ![Soal3](images/gif1.gif)
+
+# Soal 5
+
+Perbedaan antara menggunakan `listen` dan `await for`
+
+1. `listen` Eksekusi kode berlanjut setelah pemanggilan dan lebih cocok untuk UI karena non-blocking dan lebih mudah dikontrol (bisa di-cancel)
+2. `await for` kode akan berhenti ketika sudah berhenti looping (karena menggunakan `stream periodic` jadi tidak akan pernah berhenti/selesai).
