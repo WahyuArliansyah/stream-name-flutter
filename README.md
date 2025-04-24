@@ -76,3 +76,64 @@ Perbedaan antara menggunakan `listen` dan `await for`
    Maksud dari kode ini adalah membuat angka yang random/acak dari 0-9, ngirim angka ke stream lewat sink dan angka ini akan nerima oleh listener di `initState()` dan memperbarui UI.
 
 2. ![Soal6](images/gif2.gif)
+
+# Soal 7
+
+### Langkah 13
+
+```Dart
+addError() {
+    controller.sink.addError("Error");
+  }
+```
+
+method `addError` berfungsi untuk mengirimkan error/kesalahan ke dalam stream dengan pesan `Error`
+
+### Langkah 14
+
+```Dart
+void initState() {
+    numberStream = NumberStream();
+    numberStreamController = numberStream.controller;
+    Stream stream = numberStreamController.stream;
+    stream
+        .listen((event) {
+          setState(() {
+            lastNumber = event;
+          });
+        })
+        .onError((error) {
+          setState(() {
+            lastNumber = -1;
+          });
+        });
+    super.initState();
+  }
+```
+
+Dibaris `.onError((error)` bermaksud untuk callback yang mendengarkan jika ada kesalahan distream.
+Dibaris `setState(() { lastNumber = -1; });` jika ada kesalahan, maka nilai diubah menjadi -1.
+
+### Langkah 15
+
+```Dart
+  void addRandomNumber() {
+    Random random = Random();
+    // int myNum = random.nextInt(10);
+    // numberStream.addNumberToSink(myNum);
+    numberStream.addError();
+  }
+```
+
+Baris `numberStream.addError();` bermaksud untuk menambahkan kesalahan kedalam stream.
+
+### Mengembalikan codingan seperti semula
+
+```Dart
+void addRandomNumber() {
+    Random random = Random();
+    int myNum = random.nextInt(10);
+    numberStream.addNumberToSink(myNum);
+    // numberStream.addError();
+  }
+```
