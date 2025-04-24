@@ -212,7 +212,12 @@ if (!numberStreamController.isClosed) {
 
 `numberStreamController.isClosed` Berfungsi untuk memeriksa apakah stream sudah ditutup atau belum. `numberStream.addNumberToSink(myNum)` Digunakan untuk menambahkan data baru ke dalam stream jika stream masih terbuka. `setState(() { lastNumber = -1; });` Digunakan untuk menandakan kesalahan atau kondisi stream yang tidak dapat digunakan lagi.
 
-### Hasil capture
+## Hasil capture
+
+### Hasil GIF
 
 ![Soal9](images/gif4.gif)
-![Soal9](images/image.png)
+
+### Hasil di Debug Console
+
+![Deskripsi Gambar](images/image.png)
