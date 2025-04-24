@@ -234,4 +234,4 @@ Ketika menggunakan `asBroadcastStream()` stream dapat didengarkan lebih dari 1 `
 
 ### Hasil capture GIF
 
-![Deskripsi GIF](images/gif5.gif)
+![Deskripsi GIF](<images/gif5(baru).gif>)
