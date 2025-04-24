@@ -31,6 +31,7 @@ class StreamHomePage extends StatefulWidget {
 class _StreamHomePageState extends State<StreamHomePage> {
   Color bgColor = Colors.orange;
   late ColorStream colorStream;
+  late StreamTransformer transformer;
 
   int lastNumber = 0;
   late StreamController numberStreamController;
@@ -56,7 +57,17 @@ class _StreamHomePageState extends State<StreamHomePage> {
     numberStream = NumberStream();
     numberStreamController = numberStream.controller;
     Stream stream = numberStreamController.stream;
+    transformer = StreamTransformer<int, int>.fromHandlers(
+      handleData: (value, sink) {
+        sink.add(value * 10);
+      },
+      handleError: (error, track, sink) {
+        sink.add(-1);
+      },
+      handleDone: (sink) => sink.close(),
+    );
     stream
+        .transform(transformer)
         .listen((event) {
           setState(() {
             lastNumber = event;

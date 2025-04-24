@@ -137,3 +137,41 @@ void addRandomNumber() {
     // numberStream.addError();
   }
 ```
+
+# Soal 8
+
+### Langkah 1
+
+```Dart
+  late StreamTransformer transformer;
+```
+
+Codingan ini merupakan deklarasi variabel yang akan menyimpan objek `StreamTransformer`.
+
+### Langkah 2
+
+```Dart
+transformer = StreamTransformer<int, int>.fromHandlers(
+      handleData: (value, sink) {
+        sink.add(value * 10);
+      },
+      handleError: (error, track, sink) {
+        sink.add(-1);
+      },
+      handleDone: (sink) => sink.close(),
+    );
+```
+
+Codingan ini bermaksud untuk mengkonversi atau memodifikasi data yang berjalan melalui stream.
+
+### Langkah 3
+
+```Dart
+stream.transform(transformer)
+```
+
+Codingan ini bermaksud untuk menginisialisasi sebelum digunakan agar tidak terjadi error `LateInitializationError`.
+
+### Hasil GIF
+
+![Soal8](images/gif3.gif)
