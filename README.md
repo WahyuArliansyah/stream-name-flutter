@@ -221,3 +221,17 @@ if (!numberStreamController.isClosed) {
 ### Hasil di Debug Console
 
 ![Deskripsi Gambar](images/image.png)
+
+# Soal 10
+
+`subscription` sudah ada atau ready didalam dart stream tidak bisa memiliki lebih dari 1 `subscription` yang aktif. Jadi dart akan memberikan error `Bad state: Stream has already been listened to`.
+
+# Soal 11
+
+### Jelaskan mengapa hal itu bisa terjadi?
+
+Ketika menggunakan `asBroadcastStream()` stream dapat didengarkan lebih dari 1 `subscription` secara bersamaan tanpa kesalahan `Bad state: Stream has already been listened to`, dan `Text(values)` akan memberikan output angka dan menampilkan semua nilai dalam list secara horizontal. Dan dengan menggunakan 2 `listen` maka akan mendengarkan `stream` yang sama jadi output yang keluar akan sebanyak 2 kali secara terus menerus.
+
+### Hasil capture GIF
+
+![Deskripsi GIF](images/gif5.gif)
