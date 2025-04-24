@@ -175,3 +175,44 @@ Codingan ini bermaksud untuk menginisialisasi sebelum digunakan agar tidak terja
 ### Hasil GIF
 
 ![Soal8](images/gif3.gif)
+
+# Soal 9
+
+### Langkah 2
+
+```Dart
+subscription = stream.listen((event) {
+      setState(() {
+        lastNumber = event;
+      });
+    });
+```
+
+`stream.listen` adalah metode yang digunakan untuk mendengarkan (subscribe) ke sebuah stream.
+
+### Langkah 6
+
+```Dart
+subscription.cancel();
+```
+
+`subscription.cancel();` berfungsi untuk memberhentikan subscribe(langganan) ke dalam stream.
+
+### Langkah 8
+
+```Dart
+if (!numberStreamController.isClosed) {
+      numberStream.addNumberToSink(myNum);
+    } else {
+      setState(() {
+        lastNumber = -1;
+      });
+    }
+```
+
+`numberStreamController.isClosed` Berfungsi untuk memeriksa apakah stream sudah ditutup atau belum. `numberStream.addNumberToSink(myNum)` Digunakan untuk menambahkan data baru ke dalam stream jika stream masih terbuka. `setState(() { lastNumber = -1; });` Digunakan untuk menandakan kesalahan atau kondisi stream yang tidak dapat digunakan lagi.
+
+### Hasil capture
+
+![Soal9](images/gif4.gif)
+![Soal9](images/image.png)
